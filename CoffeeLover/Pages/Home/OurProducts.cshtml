@@ -1,0 +1,33 @@
+﻿@page
+@model CoffeeLover.Pages.Home.ExploreModel
+@{
+    int colNo = 0;
+
+    <header class="jumbotron">
+    <h1>Our menu</h1>
+</header>
+
+<section>        
+    <div class="row">
+        @foreach (var item in Model.Products) 
+        {
+            if (colNo > 0 && colNo % 3 == 0)
+            {
+                @:</div><div class="row">
+            }
+        
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/Images/@item.ImageURL" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@item.Description</p>
+                        <a href="#" class="btn btn-primary">View Game</a>
+                    </div>
+                </div>
+            </div>
+            colNo++;
+        }
+    </div>
+</section>
+}

@@ -1,0 +1,43 @@
+﻿@page
+@model CoffeeLover.Pages.Customer_Payment_methods.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Customer_Payment_Method</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer_Payment_Method.CardNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Payment_Method.CardNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer_Payment_Method.DateOfPurcahse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Payment_Method.DateOfPurcahse)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer_Payment_Method.Total)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Payment_Method.Total)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer_Payment_Method.BillNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Payment_Method.BillNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Customer_Payment_Method.PaymentMethodCode">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// The customer is able to create an account. They need to fill in all
 /// of the details so we can properly contact them.
 /// </summary>
-namespace CoffeeLovers.Models
+namespace CoffeeLover.Models
 {
     public class Customer
     {

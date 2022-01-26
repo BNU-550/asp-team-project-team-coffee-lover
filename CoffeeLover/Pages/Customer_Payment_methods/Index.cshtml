@@ -1,0 +1,54 @@
+﻿@page
+@model CoffeeLover.Pages.Customer_Payment_methods.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_Payment_Method[0].CardNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_Payment_Method[0].DateOfPurcahse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_Payment_Method[0].Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_Payment_Method[0].BillNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer_Payment_Method) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfPurcahse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillNumber)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PaymentMethodCode">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PaymentMethodCode">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PaymentMethodCode">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

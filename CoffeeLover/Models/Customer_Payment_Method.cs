@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 /// Customer's card details are recorded, this is going to be used
 /// when an order is going to be made.
 /// </summary>
-namespace CoffeeLovers.Models
+namespace CoffeeLover.Models
 {
     public class Customer_Payment_Method
     {
@@ -24,7 +24,7 @@ namespace CoffeeLovers.Models
 
         [Required, StringLength(maximumLength: 16)]
         [DataType(DataType.CreditCard)]
-        public string CardNumber { get; set; }
+        public string ?CardNumber { get; set; }
 
         /// <summary>
         /// Date of the purchase is taken.
