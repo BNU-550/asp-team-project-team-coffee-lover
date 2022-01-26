@@ -26,7 +26,7 @@ namespace CoffeeLover.Models
         /// </summary>
         [DisplayName("Phone number"), Required]
         [DataType(DataType.PhoneNumber)]
-        public int Contact { get; set; }
+        public string Contact { get; set; }
 
         /// <summary>
         /// Email address for the supplier.

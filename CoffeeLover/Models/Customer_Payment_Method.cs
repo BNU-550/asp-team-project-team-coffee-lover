@@ -32,14 +32,12 @@ namespace CoffeeLover.Models
 
         [Required]
         public DateTime DateOfPurcahse { get; set; }
-        [DataType(DataType.Time)]
-
+        
         /// <summary>
         /// Total price of the items is then wrote down.
         /// </summary>
 
         [Required]
-        [Column(TypeName = "Money")]
         public decimal Total { get; set; }
 
         /// <summary>

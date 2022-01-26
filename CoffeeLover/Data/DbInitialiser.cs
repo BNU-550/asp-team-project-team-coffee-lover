@@ -153,8 +153,10 @@ namespace CoffeeLover.Data
                     City = "Wycombe",
                     Postcode = "LK600OM"
                 },
-
-        };
+        
+            };
+            context.Address.AddRange(address);
+            context.SaveChanges();
 
 
         }
@@ -195,7 +197,10 @@ namespace CoffeeLover.Data
                     LastName =  "Ray",
                     Email = "Luke.Ray85@Gmail.com"
                 },
+
             };
+            context.Cashier.AddRange(cashier);
+            context.SaveChanges();
         }
         private static void AddCustomer_Payment_Method(ApplicationDbContext context)
         {
@@ -232,6 +237,8 @@ namespace CoffeeLover.Data
                     BillNumber = 52
                 },
             };
+            context.Customer_Payment_Method.AddRange(paymentMethod);
+            context.SaveChanges();
         }
 
         private static void AddSupplier(ApplicationDbContext context)
@@ -245,7 +252,7 @@ namespace CoffeeLover.Data
                 new Supplier
                 {
                     Name = "Coffee & Co",
-                    Contact = 81,
+                    Contact = "441414960568",
                     Email = "Coffee.co@gmail.com",
                     SupplierID = 34
                 },
@@ -253,7 +260,7 @@ namespace CoffeeLover.Data
                 new Supplier
                 {
                     Name = "Wycombe food",
-                    Contact = 82,
+                    Contact = "441214960948",
                     Email = "Wycombe.food@gmail.com",
                     SupplierID = 35
                 },
@@ -261,10 +268,14 @@ namespace CoffeeLover.Data
                 new Supplier
                 {
                     Name = "Aylesbury Tea",
-                    Contact = 83,
+                    Contact = "83",
                     Email = "Aylesbury.Tea@gmail.com",
                     SupplierID = 36
                 }
-    }       ;}
+
+    };
+            context.Supplier.AddRange(supplier);
+            context.SaveChanges();
+        }
 }
 } 

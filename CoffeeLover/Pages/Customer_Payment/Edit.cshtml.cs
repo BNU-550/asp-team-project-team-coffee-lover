@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using CoffeeLover.Data;
 using CoffeeLover.Models;
 
-namespace CoffeeLover.Pages.Customer_Payment_methods
+namespace CoffeeLover.Pages.Customer_Payment
 {
     public class EditModel : PageModel
     {

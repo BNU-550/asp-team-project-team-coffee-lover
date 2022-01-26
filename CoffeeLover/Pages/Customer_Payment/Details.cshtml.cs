@@ -9,18 +9,17 @@ using Microsoft.EntityFrameworkCore;
 using CoffeeLover.Data;
 using CoffeeLover.Models;
 
-namespace CoffeeLover.Pages.Customer_Payment_methods
+namespace CoffeeLover.Pages.Customer_Payment
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly CoffeeLover.Data.ApplicationDbContext _context;
 
-        public DeleteModel(CoffeeLover.Data.ApplicationDbContext context)
+        public DetailsModel(CoffeeLover.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
         public Customer_Payment_Method Customer_Payment_Method { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -37,24 +36,6 @@ namespace CoffeeLover.Pages.Customer_Payment_methods
                 return NotFound();
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Customer_Payment_Method = await _context.Customer_Payment_Method.FindAsync(id);
-
-            if (Customer_Payment_Method != null)
-            {
-                _context.Customer_Payment_Method.Remove(Customer_Payment_Method);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }
