@@ -1,4 +1,5 @@
 ﻿@page
+@using CoffeeLover.Models
 @model CoffeeLover.Pages.Home.ExploreModel
 @{
     int colNo = 0;
@@ -20,11 +21,11 @@
         
             <div class="col-lg-4">
                 <div class="card" style="width: 18rem;">
-                    <img src="/Images/@item.ImageURL" class="card-img-top" alt="...">
+                    <img src="/Images/@item.ImageURL" height=200 width=450 class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">@item.ProductName</h5>
                         <p class="card-text">@item.Description</p>
-                        <a href="#" class="btn btn-primary">View item</a>
+                        <a asp-page="/Product/Details" asp-route-id="@item.ProductID" class="btn text-primary">View</a>
                     </div>
                 </div>
             </div>
