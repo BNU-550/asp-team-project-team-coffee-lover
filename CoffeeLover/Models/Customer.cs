@@ -38,6 +38,8 @@ namespace CoffeeLover.Models
         [DataType(DataType.EmailAddress)]
         public string? Email { get; set; }
 
+
+
         /// <summary>
         /// Date is recorded of user sign up.
         /// </summary>

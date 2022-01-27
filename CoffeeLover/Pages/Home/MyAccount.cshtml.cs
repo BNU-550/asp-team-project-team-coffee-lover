@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,30 +8,31 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CoffeeLover.Data;
 using CoffeeLover.Models;
+using Microsoft.AspNetCore.Authorization;
 
-namespace CoffeeLover.Pages.Customers
+namespace CoffeeLover.Pages.Home
 {
-    public class DetailsModel : PageModel
+    [Authorize]
+    public class MyAccountModel : PageModel
     {
         private readonly CoffeeLover.Data.ApplicationDbContext _context;
 
-        public DetailsModel(CoffeeLover.Data.ApplicationDbContext context)
+        public MyAccountModel(CoffeeLover.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
         public Customer Customer { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            string name = User.Identity.Name;
+
 
             Customer = await _context.Customer
-                .Include(p => p.Address)
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .Include (p => p.Address)
+                .Include(p => p.FirstName)
+                .FirstOrDefaultAsync(m => m.Email== name);
+
 
             if (Customer == null)
             {
